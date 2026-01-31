@@ -1,4 +1,3 @@
-#!/usr/bin/env python3
 from enum import Enum
 
 class BlockType(Enum):
@@ -10,8 +9,7 @@ class BlockType(Enum):
     ORDERED_LIST = "ordered_list"
 
 def markdown_to_blocks(string):
-    new_string = string.strip('\n')
-    parts = new_string.split('\n\n')
+    parts = string.split('\n\n')
     new_parts = []
     for part in parts:
         tmp = part.strip()
@@ -64,6 +62,7 @@ def block_to_block_type(block):
             if part[0:3] != f"{index}. ":
                 list_exited = True
             index += 1
-        if list_exited == False:
+        if not list_exited:
             return BlockType.ORDERED_LIST
     return BlockType.PARAGRAPH
+
