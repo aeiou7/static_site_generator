@@ -38,11 +38,11 @@ def block_to_block_type(block):
             return BlockType.HEADING
     elif block.startswith("```\n") and block.endswith("\n```"):
         return BlockType.CODE
-    elif block.startswith("> "):
+    elif block[0] == ">":
         parts = block.split("\n")
         is_quote = True
         for part in parts:
-            if part[0:2] != ("> "):
+            if part[0] != (">"):
                 is_quote = False
         if is_quote:
             return BlockType.QUOTE

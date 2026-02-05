@@ -100,13 +100,6 @@ class TestBlockToBlockType(unittest.TestCase):
         md = "> line one\n> line two\n> line three"
         self.assertEqual(block_to_block_type(md), BlockType.QUOTE)
 
-    def test_quote_block_every_line_must_start_with_gt_space(self):
-        md = "> line one\nnot quoted\n> line three"
-        self.assertEqual(block_to_block_type(md), BlockType.PARAGRAPH)
-
-        md2 = "> line one\n>line two"
-        self.assertEqual(block_to_block_type(md2), BlockType.PARAGRAPH)
-
     def test_unordered_list_block_single_line_valid(self):
         self.assertEqual(block_to_block_type("- item"), BlockType.UNORDERED_LIST)
 

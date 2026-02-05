@@ -33,7 +33,7 @@ def markdown_to_html_node(markdown):
                 paragraph = "\n".join([line.lstrip("> ").rstrip("\n") for line in block.splitlines(True)])
                 text_nodes = text_to_textnodes(paragraph)
                 kids = [text_node_to_html_node(tn) for tn in text_nodes]
-                paragraph_node.append(ParentNode("blockquote",[ParentNode("p",kids)]))
+                paragraph_node.append(ParentNode("blockquote",kids))
             case BlockType.CODE:
                 paragraph = "\n".join([line.strip() for line in block.splitlines(True)])
                 kids = [text_node_to_html_node(TextNode(paragraph.lstrip("""```""").rstrip("""```""").lstrip("\n").lstrip(" "),TextType.CODE))]# ai couldnt write code this bad

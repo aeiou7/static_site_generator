@@ -49,8 +49,8 @@ This is another paragraph with _italic_ text and `code` here
         html = node.to_html()
         self.assertEqual(
             html,
-            "<div><blockquote><p>This is a <b>quote</b>\n"
-            "with <i>two</i> lines and <code>code</code></p></blockquote></div>",
+            "<div><blockquote>This is a <b>quote</b>\n"
+            "with <i>two</i> lines and <code>code</code></blockquote></div>",
         )
 
     def test_unordered_list(self):
