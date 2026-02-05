@@ -46,8 +46,8 @@ def generate_page(from_path, template_path, dest_path, base_path):
     title = extract_title(from_content)
     template_content = template_content.replace("{{ Title }}", title)
     template_content = template_content.replace("{{ Content }}", html_node_content)
-    template_content = template_content.replace('href=/"', f'href="{base_path}')
-    template_content = template_content.replace('src=/"', f'src="{base_path}')
+    template_content = template_content.replace('href="/', f'href="{base_path}/')
+    template_content = template_content.replace('src="/', f'src="{base_path}/')
     p = Path(dest_path); p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(template_content)
 def generate_page_recursively(dir_path_content, template_path, dest_dir_path, base_path):
